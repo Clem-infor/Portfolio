@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="Asset/gettyimages-1328197014-612x612.jpg" alt="Logo" />
+      <span>Clément Harinquet</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Accueil</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#docs">Docs</a>
+      <a href="#about">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="stage.html">Mon Stage</a>
+
+    </nav>
+  </header>
+
+  <section id="home" class="section fade-in">
+    <h1>Salut, moi c’est Clément 👋</h1>
+    <p>Étudiant en SISR, passionné de réseaux, cybersécurité et infrastructure IT.</p>
+    <a href="Asset/CV_Clement-harinquet.pdf" class="btn" download>Télécharger mon CV</a>
+  </section>
+
+  <section id="skills" class="section fade-in">
+    <h2>Compétences</h2>
+    <div class="grid">
+      <div class="card">Cisco / VLAN / DHCP</div>
+      <div class="card">Linux / Windows Server</div>
+      <div class="card">Zabbix / GLPI</div>
+      <div class="card">Virtualisation (Proxmox)</div>
+      <div class="card">PowerShell / Bash</div>
+      <div class="card">Docker / Git</div>
+    </div>
+  </section>
+  
+
+  <section id="projects" class="section fade-in">
+    <h2>Projets & Ateliers</h2>
+    <ul>
+      <li><strong>Zabbix :</strong> Supervision réseau complète</li>
+      <li><strong>GLPI :</strong> Gestion d’un parc informatique</li>
+      <li><strong>Active Directory :</strong> Déploiement et GPO</li>
+      <li><strong>pfSense :</strong> Sécurisation réseau avec VPN</li>
+    </ul>
+  </section>
+
+  <section id="docs" class="section fade-in">
+    <h2>Documentations</h2>
+    <ul>
+      <li><a href="#">Zabbix - Guide PDF</a></li>
+      <li><a href="#">GLPI - Guide PDF</a></li>
+    </ul>
+  </section>
+
+  <section id="about" class="section">
+    <h2>À propos de moi</h2>
+    <p>Curieux, rigoureux et toujours en veille technologique. Mon objectif : devenir administrateur réseau expert en sécurité informatique.</p>
+  </section>
+
+ 
+ 
+
+  <script src="script.js"></script>
+  
+  <button onclick="scrollToTop()" id="scrollTopBtn" style="
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #2ea043;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+">
+  ↑ Haut
+</button>
+
+
+
+<footer class="footer">
+  &copy; 2025 Clément Harinquet - Portfolio SISR
+</footer>
+
+
+</body>
+</html>
