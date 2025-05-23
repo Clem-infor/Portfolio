@@ -8,39 +8,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <header class="navbar">
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p class="loading-text">Chargement en cours...</p>
+  </div>
+  <header class="navbar transparent">
     <div class="logo">
       <img src="Asset/gettyimages-1328197014-612x612.jpg" alt="Logo" />
-      <span>Clément Harinquet</span>
+      <span></span>
     </div>
     <nav class="nav-links">
       <a href="#home">Accueil</a>
+      <a href="#about">Profil</a>
       <a href="#skills">Compétences</a>
-      <a href="#projects">Projets</a>
-      <a href="#docs">Docs</a>
-      <a href="#about">À propos</a>
       <a href="contact.html">Contact</a>
       <a href="stage.html">Mon Stage</a>
 
     </nav>
   </header>
 
-  <section id="home" class="section fade-in">
-    <h1>Salut, moi c’est Clément 👋</h1>
-    <p>Étudiant en SISR, passionné de réseaux, cybersécurité et infrastructure IT.</p>
-    <a href="Asset/CV_Clement-harinquet.pdf" class="btn" download>Télécharger mon CV</a>
+  <section id="home" class="section fade-in hero">
+    <h1>Clément Harinquet 👋</h1>
+    <h2>Technicien réseau junior</h2>
+    <a href="#about" class="btn1">Qui-suis-je ?</a>
   </section>
 
-  <section id="skills" class="section fade-in">
+
+  <section id="about" class="section moi">
+    <h2>À propos de moi</h2>
+    <div class="about-content">
+      <div class="about-text">
+    <p>
+      Hello ! Je m’appelle Clément HARINQUET, Technicien réseau junior.
+      Auparavant, j’ai effectué plusieurs années en experiences afin de réellement trouver ma voie ce qui m’a permis d’acquérir de très bonnes compétences telles que l’organisation, l’écoute, le conseil ainsi que des qualités relationnelles importantes.
+      J’ai profité du retour en région parisienne pour effectuer une reconversion professionnelle dans la cybersécurité, domaine qui m’intéressait depuis de nombreuses années.
+      J’ai donc suivi la formation BTS SIO au sein de L'IPSSI Campus de Paris. Je suis donc en quête de mon Bac+2,ou j'espère y décrocher mon diplôme. Je continue donc à travailler chaque jour avec envie, motivation et des idées plein la tête..
+    </p>
+      </div>
+            <div class="about-image"> 
+              <img src="Asset/moi.jpg" alt="ImageDeMoi">
+            </div>
+    </div>
+  </section>
+
+
+  <section id="skills" class="section skills-section fade-in">
     <h2>Compétences</h2>
-    <div class="grid">
-      <div class="card">Cisco / VLAN / DHCP</div>
-      <div class="card">Linux / Windows Server</div>
-      <div class="card">Zabbix / GLPI</div>
-      <div class="card">Virtualisation (Proxmox)</div>
-      <div class="card">PowerShell / Bash</div>
-      <div class="card">Docker / Git</div>
+    <p class="skills-intro">
+      Voici un aperçu de mes compétences techniques acquises et renforcées au fil de mes projets et expériences.
+    </p>
+    <div class="skills-container">
+      <div class="skills-bars">
+        <h3>Back-End</h3>
+        <div class="skill"><span>Linux</span><div class="bar"><div style="width: 90%"></div></div></div>
+        <div class="skill"><span>Cisco / VLAN</span><div class="bar"><div style="width: 85%"></div></div></div>
+        <div class="skill"><span>Zabbix / GLPI</span><div class="bar"><div style="width: 75%"></div></div></div>
+        <div class="skill"><span>Proxmox / Virtualisation</span><div class="bar"><div style="width: 80%"></div></div></div>
+        <div class="skill"><span>PowerShell / Bash</span><div class="bar"><div style="width: 85%"></div></div></div>
+        <div class="skill"><span>Docker / Git</span><div class="bar"><div style="width: 80%"></div></div></div>
+      </div>
+  
+      <div class="cv-preview">
+        <img src="Asset/CV_Clement-harinquet-1.png" alt="CV de [Ton Nom]">
+        <a href="Asset/CV_Clement-harinquet.pdf" class="btn" download>Télécharger mon CV</a>
+      </div>
     </div>
   </section>
   
@@ -63,10 +94,7 @@
     </ul>
   </section>
 
-  <section id="about" class="section">
-    <h2>À propos de moi</h2>
-    <p>Curieux, rigoureux et toujours en veille technologique. Mon objectif : devenir administrateur réseau expert en sécurité informatique.</p>
-  </section>
+  
 
  
  
@@ -97,7 +125,6 @@
 <footer class="footer">
   &copy; 2025 Clément Harinquet - Portfolio SISR
 </footer>
-
 
 </body>
 </html>

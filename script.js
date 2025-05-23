@@ -20,3 +20,37 @@ window.addEventListener("load", () => {
     });
   });
   
+  window.addEventListener("scroll", () => {
+    const bars = document.querySelectorAll(".bar > div");
+    bars.forEach((bar) => {
+      const width = bar.style.width;
+      bar.style.width = "0"; // reset
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 100);
+    });
+  }, { once: true });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+  
+    // Temps minimum affiché (en millisecondes)
+    const MIN_DISPLAY_TIME = 2000;
+  
+    const startTime = Date.now();
+  
+    window.addEventListener("load", () => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(MIN_DISPLAY_TIME - elapsedTime, 0);
+  
+      setTimeout(() => {
+        loadingScreen.classList.add("fade-out");
+  
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+        }, 1000); // le temps de la transition CSS (1s)
+      }, remainingTime);
+    });
+  });
+  
+    
