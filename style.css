@@ -485,7 +485,10 @@ h1, h2, h3, p {
   flex: 1;
   min-width: 200px;
   color: white;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 1,6;
+  margin-bottom: 1,5em;
+  margin-top: 50px;
 }
 
 .about-image img {
@@ -493,4 +496,54 @@ h1, h2, h3, p {
   height: 400px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+#projets {
+  padding: 50px 20px;
+  color: #fff;
+}
+
+#projets h2 {
+  text-align: center;
+  color: #F5C518;
+  margin-bottom: 40px;
+}
+
+.projet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.projet {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.projet:hover {
+  transform: translateY(-5px);
+  border-color: #F5C518;
+}
+
+.projet h3 {
+  color: #F5C518;
+  margin-bottom: 10px;
+}
+
+.projet p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.reveal-on-scroll.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -53,4 +53,16 @@ window.addEventListener("load", () => {
     });
   });
   
-    
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal");
+        observer.unobserve(entry.target); // déclenche qu’une fois
+      }
+    });
+  });
+  
+  document.querySelectorAll(".reveal-on-scroll").forEach(el => {
+    observer.observe(el);
+  });
+  
