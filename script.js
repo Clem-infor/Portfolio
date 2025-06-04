@@ -31,27 +31,7 @@ window.addEventListener("load", () => {
     });
   }, { once: true });
   
-  document.addEventListener("DOMContentLoaded", () => {
-    const loadingScreen = document.getElementById("loading-screen");
   
-    // Temps minimum affiché (en millisecondes)
-    const MIN_DISPLAY_TIME = 2000;
-  
-    const startTime = Date.now();
-  
-    window.addEventListener("load", () => {
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = Math.max(MIN_DISPLAY_TIME - elapsedTime, 0);
-  
-      setTimeout(() => {
-        loadingScreen.classList.add("fade-out");
-  
-        setTimeout(() => {
-          loadingScreen.style.display = "none";
-        }, 1000); // le temps de la transition CSS (1s)
-      }, remainingTime);
-    });
-  });
   
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -129,3 +109,36 @@ window.addEventListener("load", () => {
     "retina_detect": true
   });
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    const MIN_DISPLAY_TIME = 2000;
+    const startTime = Date.now();
+  
+    window.addEventListener("load", () => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(MIN_DISPLAY_TIME - elapsedTime, 0);
+  
+      setTimeout(() => {
+        loadingScreen.classList.add("fade-out");
+  
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+  
+          // 🔥 Lancer l'animation après le loader
+          document.querySelector(".typewriter")?.classList.add("start-typewriter");
+          document.querySelectorAll(".fade-in").forEach(el => el.classList.add("loaded"));
+        }, 1000); // Temps de transition CSS
+      }, remainingTime);
+    });
+  });
+  
+  document.addEventListener("mousemove", function(e) {
+    const particlesContainer = document.getElementById("particles-js");
+  
+    if (particlesContainer) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 10; // Ajuste la force ici
+      const y = (e.clientY / window.innerHeight - 0.5) * 10;
+  
+      particlesContainer.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  });

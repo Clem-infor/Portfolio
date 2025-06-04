@@ -39,7 +39,7 @@
   }
   
   .logo img {
-    height: 70px;
+    height: 100px;
     margin-left: 30px;
     border-radius: 0%;
     margin-top: 10px;
@@ -107,7 +107,7 @@
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background: #00f308;
+    background: #f7c945;
     color: #000;
     border-radius: 5px;
     text-decoration: none;
@@ -307,17 +307,6 @@ h1, h2, h3, p {
 
 /* Responsive global : petit écran */
 @media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-  }
 
   .stage-container {
     padding: 20px;
@@ -589,3 +578,96 @@ h1, h2, h3, p {
   font-size: 1rem;
   padding: 10px 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1rem;
+  }
+
+  .hero-content .btn1 {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    background-color: #000 !important; /* Pour forcer fond foncé si transparent */
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 50px;
+    margin-left: 0;
+
+  }
+
+  .logo {
+    font-size: 16px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px #00ff99);
+  }
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #f7c945;
+  width: 0;
+}
+
+.typewriter.start-typewriter {
+  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#particles-js {
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+#about {
+  background: linear-gradient(145deg, rgba(0,255,140,0.05), rgba(0,255,140,0.02));
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 30px auto;
+  box-shadow: 0 0 10px rgba(0,255,140,0.2);
+}
+  
