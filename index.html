@@ -8,6 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <div class="custom-cursor"></div>
+
+  
+
   <div id="loading-screen">
     <div class="spinner"></div>
     <p class="loading-text">Chargement en cours...</p>
@@ -23,6 +28,10 @@
       <a href="#skills">Compétences</a>
       <a href="contact.html">Contact</a>
       <a href="stage.html">Mon Stage</a>
+      <button id="theme-toggle" class="btn1">Changer de thème</button>
+
+
+
 
     </nav>
   </header>
@@ -30,7 +39,7 @@
   <section id="home" class="fade-in hero">
     <div id="particles-js"></div>
     <div class="hero-content">
-      <h1 class="typewriter">Clément Harinquet</h1>
+      <h1 class="typewriter-text" data-phrases='["Clément HARINQUET."]''></h1>
     <h2>Technicien réseau junior</h2>
     <a href="#about" class="btn1">Qui-suis-je ?</a>
     </div>
@@ -45,7 +54,7 @@
       Hello ! Je m’appelle Clément HARINQUET, Technicien réseau junior.
       </p>
       <p>
-    Auparavant, j’ai effectué plusieurs années en experiences afin de réellement trouver ma voie ce qui m’a permis d’acquérir de très bonnes compétences telles que l’organisation, l’écoute, le conseil ainsi que des qualités relationnelles importantes.
+    Auparavant, j’ai eu plusieurs expériences professionnelles avant de réellement trouver ma voie ce qui m’a permis d’acquérir de très bonnes compétences telles que l’organisation, l’écoute, le conseil ainsi que des qualités relationnelles importantes.
     </p>
     <p> 
       J’ai profité du retour en région parisienne pour effectuer une reconversion professionnelle dans la cybersécurité, domaine qui m’intéressait depuis de nombreuses années.
@@ -119,8 +128,8 @@
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #2ea043;
-  color: white;
+  background-color: #f7c945;
+  color: var(text-color);
   cursor: pointer;
   padding: 12px 16px;
   border-radius: 8px;

@@ -142,3 +142,74 @@ window.addEventListener("load", () => {
       particlesContainer.style.transform = `translate(${x}px, ${y}px)`;
     }
   });
+
+
+
+
+ const toggleBtn = document.getElementById("theme-toggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    toggleBtn.textContent = document.body.classList.contains("light-mode")
+      ? "Mode sombre"
+      : "Mode clair";
+  });
+
+ 
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const element = document.querySelector(".typewriter-text");
+  const phrases = JSON.parse(element.getAttribute("data-phrases"));
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    const displayedText = isDeleting 
+      ? currentPhrase.substring(0, charIndex--) 
+      : currentPhrase.substring(0, charIndex++);
+
+    element.textContent = displayedText;
+
+    let delay = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      delay = 1500; // pause avant suppression
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      delay = 300;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  type(); // lancer l'effet dès le départ
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.querySelector(".custom-cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+  });
+
+  // Agrandir le curseur sur les liens/boutons
+  const interactiveEls = document.querySelectorAll("a, button, input, textarea");
+
+  interactiveEls.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      document.body.classList.add("hovered");
+    });
+    el.addEventListener("mouseleave", () => {
+      document.body.classList.remove("hovered");
+    });
+  });
+});
