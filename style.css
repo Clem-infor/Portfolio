@@ -35,7 +35,7 @@ body.light-mode {
   }
   
   .navbar {
-    position: fixed;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
@@ -45,6 +45,7 @@ body.light-mode {
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
+  
 
   .navbar.scrolled {
     background-color: var(--bg-color);
@@ -52,7 +53,9 @@ body.light-mode {
   }
     
   }
-  
+
+
+
   .logo {
     display: flex;
     align-items: center;
@@ -67,6 +70,15 @@ body.light-mode {
     margin-top: 10px;
   }
   
+  .nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-left: 100px;
+   
+}
+
   .nav-links a {
     color: #f7c945;
     margin-left: 20px;
@@ -114,9 +126,10 @@ body.light-mode {
     transform: scale(1.05);
     background-color: #333;
   }
-  .btn1 {
+.btn3 {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-right: 20px;
     padding: 10px 20px;
     background: #f7c945;
     color: #000;
@@ -124,6 +137,20 @@ body.light-mode {
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s ease;
+    align-items: flex-end;
+  }
+
+  .btn1 {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #f7c945;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    align-items: flex-end;
   }
   .btn {
     display: inline-block;
