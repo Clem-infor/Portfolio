@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div class="custom-cursor"></div>
+
+  
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p class="loading-text">Chargement en cours...</p>
+  </div>
+  <header class="navbar transparent">
+    <div class="logo">
+      <img src="Asset/ChatGPT Image 4 juin 2025, 11_54_01.png" alt="Logo" />
+      <span></span>
+    </div>
+    <nav class="nav-links">
+      
+      <a href="#home">Accueil</a>
+      <a href="#about">À Propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="contact.html">Contact</a>
+      <div class="dropdown">
+      <a href="#Veilletechnologique">Veilles Technologiques▾</a>
+       <div class="dropdown-content">
+            <a href="veille techno1.html"> ? </a>
+             <a href="mes veilles.html"> Mes veilles </a>
+            
+            </div>
+            </div>
+       <div class="dropdown">
+  <a href="#" class="dropbtn">Entreprises ▾</a>
+  <div class="dropdown-content">
+    <a href="stage.html">Stages</a>
+    <a href="alternance.html">Alternance</a>
+    
+  </div>
+</div>
+</nav>
+     
+      <button id="theme-toggle" class="btn3">Changer de thème</button>
+     </header>
+
+  <section id="home" class="fade-in hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1 class="typewriter-text" data-phrases='["Clément HARINQUET."]'></h1>
+    <h2>Technicien réseau junior</h2>
+    <a href="#about" class="btn1">Qui-suis-je ?</a>
+    </div>
+  </section>
+
+
+  <section class="about-cards">
+ 
+    <div class="card green">
+  <div class="icon">
+    <img src="Asset/moi.jpg" alt="Photo de moi" />
+  </div>
+  <h3>Clément Harinquet</h3>
+  <h4>Étudiant en BTS SIO option SISR</h4>
+  <p>
+    Bonjour, je m’appelle Clément HARINQUET, je suis en formation pour obtenir mon BTS SIO (Services Informatiques aux Organisations) au sein de l’IPSSI – Campus de Paris.
+  </p>
+  <button class="see-more-btn" onclick="toggleMore(this)">Voir plus</button>
+  <div class="more-text">
+    <p>
+Avant de m’orienter vers l’informatique, j’ai exercé plusieurs métiers dans des domaines variés. Ces expériences m’ont permis de développer des compétences précieuses : organisation, écoute, sens du conseil et qualités relationnelles solides. Ces atouts me servent aujourd’hui au quotidien dans mes missions informatiques et mes échanges professionnels. </p>
+<p>
+
+De retour en région parisienne, j’ai décidé de donner une nouvelle direction à mon parcours en me reconvertissant dans la cybersécurité, un domaine qui me passionne depuis longtemps. Cette motivation m’a conduit à intégrer le BTS SIO, dans lequel je me spécialise progressivement en infrastructure réseau et sécurité informatique.
+</p>
+<p>Mon objectif est clair : travailler plus tard dans le secteur de la cybersécurité, un domaine stratégique, en constante évolution, où je souhaite m’épanouir professionnellement. Pour y parvenir, je projette de poursuivre mes études en intégrant un Mastère Cybersécurité & Cloud.
+
+Actuellement en cours d’obtention de mon Bac+2, je continue à avancer avec motivation, rigueur et enthousiasme, prêt à relever de nouveaux défis et à contribuer activement au monde de la cybersécurité. 
+    </p>
+  </div>
+</div>
+
+    
+  
+    <div class="card blue">
+      <div class="icon">
+        <i class="fas fa-school"></i>
+      </div>
+      <h3>Mon École</h3>
+      <h4>IPSSI – Paris</h4>
+      <p>
+       L’IPSSI Paris est une école spécialisée dans les métiers du numérique et de l’informatique. Située dans le 11ᵉ arrondissement, elle propose des formations allant du bac à bac+5 dans des domaines comme le développement web, la cybersécurité, l’intelligence artificielle, la data ou encore le marketing digital.
+      </p>
+      <button class="see-more-btn">Voir plus</button>
+<div class="more-text">
+  <p>
+    <!-- Contenu supplémentaire ici, adapté à chaque carte -->
+    L’école met l’accent sur la pratique, avec des projets concrets, des stages, et la possibilité de faire ses études en alternance dès la 2e année. Les diplômes sont reconnus par l’État, ce qui permet une bonne insertion sur le marché du travail.
+  </p>
+  <p>
+    C’est une école qui attire des étudiants passionnés par la tech, qui veulent se former aux compétences les plus recherchées aujourd’hui. Le cadre est moderne, le rythme est assez intense, mais l’ambiance est plutôt bonne, et l’équipe pédagogique reste accessible.
+  </p>
+  </div>
+
+    </div>
+  
+    <div class="card yellow">
+      <div class="icon">
+        <i class="fas fa-network-wired"></i>
+      </div>
+      <h3>Mon Cursus</h3>
+      <h4>BTS SIO option SISR</h4>
+      <p>
+        Le BTS SIO SISR forme des techniciens capables d’installer, configurer et sécuriser des infrastructures réseau. J’y développe mes compétences en systèmes, réseaux et cybersécurité pour devenir un professionnel complet dans ce domaine.
+      </p>
+      <button class="see-more-btn">Voir plus</button>
+<div class="more-text">
+  <p>
+    <!-- Contenu supplémentaire ici, adapté à chaque carte -->
+    C’est une formation assez technique et concrète, qui permet de se lancer rapidement dans la vie pro ou de poursuivre ses études vers une licence ou une école spécialisée. On y apprend à coder, à gérer des réseaux, à sécuriser des systèmes ou encore à suivre des projets informatiques.
+  </p>
+</div>
+
+    </div>
+  </section>
+  
+
+
+  <section id="skills" class="section skills-section fade-in">
+    <h2>Compétences</h2>
+    <p class="skills-intro">
+      Voici un aperçu de mes compétences techniques acquises et renforcées au fil de mes projets et expériences.
+    </p>
+    <div class="skills-container">
+      <div class="skills-bars">
+        <h3>Systèmes d'exploitation</h3>
+        <div class="skill"><span>Linux (Debian-Ubuntu)</span><div class="bar"><div style="width: 90%"></div></div></div>
+        <div class="skill"><span>Windows (10/11/server)<div class="bar"><div style="width: 85%"></div></div></div>
+        <div class="skill"><span>MacOS<div class="bar"><div style="width: 85%"></div></div></div>
+                  <h3>Outils d'administration</h3>
+        <div class="skill"><span>Zabbix</span><div class="bar"><div style="width: 75%"></div></div></div>
+        <div class="skill"><span>GLPI</span><div class="bar"><div style="width: 80%"></div></div></div>
+        <div class="skill"><span>Wazuh</span><div class="bar"><div style="width: 85%"></div></div></div>
+       <h3>Réseaux</h3>
+        <div class="skill"><span>TCP/IP</span><div class="bar"><div style="width: 90%"></div></div></div>
+        <div class="skill"><span>VLANS<div class="bar"><div style="width: 85%"></div></div></div>
+        <div class="skill"><span>Configuration Cisco<div class="bar"><div style="width: 85%"></div></div></div>
+        <a href="Asset/Tableau de synthese Clem.xlsx" class="btn" download>Tableau de synthèse</a>
+      </div>
+  
+      <div class="cv-preview">
+        <img src="Asset/CV_Clement-harinquet-1.png" alt="CV de [Ton Nom]">
+        <a href="Asset/CV_Clement-harinquet.pdf" class="btn" download>Télécharger mon CV</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="projets" >
+    <h2>🚀 Projets AP & Ateliers</h2>
+
+
+
+    
+    <div class="projet-grid">
+      <div class="projet">
+        <h3><strong>Zabbix</strong></h3>
+        <p>Installation et configuration complète pour la supervision d’un réseau. Alertes, visualisation, et automatisation.</p>
+        <a href="Asset/Installation de Zabbix avec deux agents (debian&windows) (1).pdf" download>Documentation</a>
+      </div>
+      <div class="projet">
+        <h3><strong>GLPI</strong></h3>
+        <p>Déploiement de la solution de gestion de parc informatique, gestion des tickets, utilisateurs et ressources. Installation complète.</p>
+        
+          <a href="Asset/Doc GLPI Clem HART (2).pdf" download>Documentation</a>
+      </div>
+      <div class="projet">
+        <h3><strong>Active Directory</strong></h3>
+        <p>Création et gestion d’utilisateurs, mise en place de stratégies de groupe (GPO), et automatisation de tâches.</p>
+      </div>
+      <div class="projet">
+        <h3><strong>UFW</strong></h3>
+        <p>Configuration d’un pare-feu avec VPN sécurisé. Routage, filtrage et segmentation du réseau.</p>
+      </div>
+      <div class="projet">
+        <h3><strong>AP1</strong></h3>
+        <p>Étudier un service ou une solution informatique existante ou à mettre en œuvre, en tenant compte de l’environnement économique, juridique et managérial de l’organisation..</p>
+      <a href="Asset/Installation de Zabbix avec deux agents (debian&windows) (1).pdf" download>Documentation</a>    
+      </div>
+      <div class="projet">
+        <h3><strong>AP2</strong></h3>
+        <p>Réaliser ou maintenir une solution informatique (développement, réseau, système…) adaptée aux besoins d’une organisation.</p>
+        <a href="Asset/Installation de Zabbix avec deux agents (debian&windows) (1).pdf" download>Documentation</a>
+      </div>
+    </div>
+    </section>
+  
+  
+
+ 
+ 
+
+  
+  <button onclick="scrollToTop()" id="scrollTopBtn" style="
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #f7c945;
+  color: var(text-color);
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+">
+  ↑ Haut
+</button>
+
+
+
+<footer class="footer">
+  &copy; 2025 Clément Harinquet - Portfolio SISR
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
