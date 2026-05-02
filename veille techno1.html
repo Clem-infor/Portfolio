@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille Technologique - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .veille-page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .back-nav { margin-bottom: 32px; }
+    .back-nav a {
+      color: #b0b8c8;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+    .back-nav a:hover { color: #818cf8; }
+    .veille-hero {
+      background: linear-gradient(135deg, #1a1f2e 0%, #242938 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 40px 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .veille-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(99,102,241,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .veille-hero-logo {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .veille-hero-info h1 {
+      font-size: 1.7rem;
+      color: #fff;
+      margin: 0 0 4px;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+    }
+    .veille-hero-info .subtitle {
+      font-size: .95rem;
+      color: #06d6a0;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .veille-hero-info .meta { display: flex; flex-wrap: wrap; gap: 10px; }
+    .meta-badge {
+      background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.25);
+      color: #818cf8;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8892a8;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #2d3748;
+    }
+    .intro-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 40px;
+      color: #b0b8c8;
+      font-size: .93rem;
+      line-height: 1.75;
+    }
+    .intro-card strong { color: #fff; }
+    .sujet-hero {
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sujet-hero.s1 {
+      background: linear-gradient(135deg, rgba(99,102,241,.12), rgba(99,102,241,.04));
+      border: 1px solid rgba(99,102,241,.3);
+    }
+    .sujet-hero.s2 {
+      background: linear-gradient(135deg, rgba(239,68,68,.10), rgba(239,68,68,.03));
+      border: 1px solid rgba(239,68,68,.28);
+    }
+    .sujet-num {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .sujet-num.s1 { background: rgba(99,102,241,.2); color: #818cf8; }
+    .sujet-num.s2 { background: rgba(239,68,68,.2);  color: #f87171; }
+    .sujet-hero-body h2 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin: 0 0 6px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .sujet-hero-body p {
+      font-size: .88rem;
+      color: #b0b8c8;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .point-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 18px 16px;
+      transition: border-color .2s, transform .2s;
+    }
+    .point-card:hover { transform: translateY(-3px); }
+    .point-card.s1:hover { border-color: #6366f1; }
+    .point-card.s2:hover { border-color: #ef4444; }
+    .point-card .point-icon { font-size: 20px; margin-bottom: 8px; }
+    .point-card h4 { font-size: .88rem; font-weight: 700; color: #fff; margin: 0 0 6px; }
+    .point-card p { font-size: .8rem; color: #8892a8; line-height: 1.55; margin: 0; }
+    .analyse-block {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+    .analyse-row {
+      padding: 14px 20px;
+      border-bottom: 1px solid #2d3748;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background .2s;
+    }
+    .analyse-row:last-child { border-bottom: none; }
+    .analyse-row:hover { background: rgba(99,102,241,.05); }
+    .ar-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .ar-icon.s1 { background: rgba(99,102,241,.15); color: #818cf8; }
+    .ar-icon.s2 { background: rgba(239,68,68,.15);  color: #f87171; }
+    .ar-text { flex: 1; }
+    .ar-title { font-size: .9rem; font-weight: 600; color: #fff; }
+    .ar-sub   { font-size: .78rem; color: #8892a8; margin-top: 2px; }
+    .ar-chevron { color: #44546a; font-size: 12px; transition: transform .3s; }
+    .analyse-row.open .ar-chevron { transform: rotate(180deg); }
+    .analyse-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, opacity .3s;
+      opacity: 0;
+      font-size: .85rem;
+      color: #b0b8c8;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+    .analyse-row.open + .analyse-detail { max-height: 220px; opacity: 1; padding: 0 20px 16px; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .tag {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: #b0b8c8;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .tag:hover { transform: translateY(-2px); }
+    .tag.s1:hover { border-color: #6366f1; color: #818cf8; }
+    .tag.s2:hover { border-color: #ef4444; color: #f87171; }
+    .tag i { font-size: 11px; opacity: .75; }
+    .bilan-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.08), rgba(6,214,160,.05));
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 26px 30px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .bilan-card .quote-icon { font-size: 26px; color: #818cf8; flex-shrink: 0; margin-top: 2px; }
+    .bilan-card p { font-size: .93rem; color: #b0b8c8; line-height: 1.75; margin: 0; }
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .source-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .source-card:hover { border-color: #06d6a0; transform: translateY(-2px); }
+    .src-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(6,214,160,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: #06d6a0;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .src-name { font-size: .82rem; font-weight: 600; color: #fff; }
+    .src-type { font-size: .72rem; color: #8892a8; margin-top: 1px; }
+    .sujet-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2d3748 30%, #2d3748 70%, transparent);
+      margin: 44px 0;
+    }
+    @media (max-width: 600px) {
+      .veille-hero { flex-direction: column; gap: 20px; }
+      .sujet-hero  { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <div class="veille-page">
+
+    <nav class="back-nav">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="veille-hero">
+      <div class="veille-hero-logo"><i class="fas fa-satellite-dish"></i></div>
+      <div class="veille-hero-info">
+        <div class="subtitle">BTS SIO — Option SISR</div>
+        <h1>Veille Technologique</h1>
+        <div class="meta">
+          <span class="meta-badge"><i class="far fa-calendar"></i> 2025 — 2026</span>
+          <span class="meta-badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+          <span class="meta-badge"><i class="fas fa-book-open"></i> 2 sujets</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Démarche -->
+    <p class="section-title"><i class="fas fa-info-circle"></i> Démarche</p>
+    <div class="intro-card">
+      Dans le cadre du <strong>BTS SIO option SISR</strong>, la veille technologique consiste à surveiller régulièrement l'évolution du secteur IT afin d'anticiper les mutations techniques, identifier les nouvelles menaces et rester opérationnel face aux technologies émergentes. J'ai choisi deux sujets liés à la <strong>sécurité des systèmes d'information</strong> : la <strong>cryptographie post-quantique</strong>, qui redéfinit les fondations de la sécurité des données, et les attaques <strong>Living off the Land</strong>, une approche offensive qui exploite les outils légitimes du système pour contourner les défenses.
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SUJET 1 — CRYPTOGRAPHIE POST-QUANTIQUE
+         ═══════════════════════════════════════════ -->
+    <p class="section-title"><i class="fas fa-atom"></i> Sujet 1</p>
+
+    <div class="sujet-hero s1">
+      <span class="sujet-num s1">Sujet 01</span>
+      <div class="sujet-hero-body">
+        <h2>La transition vers la Cryptographie Post-Quantique</h2>
+        <p>Les ordinateurs quantiques menacent de rendre obsolètes les algorithmes de chiffrement actuels (RSA, ECC). La cryptographie post-quantique désigne l'ensemble des algorithmes conçus pour résister à la puissance de calcul quantique, et sa standardisation par le NIST marque un tournant majeur pour l'ensemble des secteurs numériques.</p>
+      </div>
+    </div>
+
+    <p class="section-title"><i class="fas fa-key"></i> Points clés</p>
+    <div class="points-grid">
+      <div class="point-card s1">
+        <div class="point-icon">⚛️</div>
+        <h4>Menace quantique</h4>
+        <p>L'algorithme de Shor permettrait à un ordinateur quantique de casser RSA-2048 en quelques heures, rendant la majorité des échanges chiffrés actuels vulnérables.</p>
+      </div>
+      <div class="point-card s1">
+        <div class="point-icon">🏛️</div>
+        <h4>Standardisation NIST</h4>
+        <p>En 2024, le NIST a finalisé les premiers standards post-quantiques : <strong>ML-KEM</strong> (Kyber), <strong>ML-DSA</strong> (Dilithium) et <strong>SLH-DSA</strong> (SPHINCS+).</p>
+      </div>
+      <div class="point-card s1">
+        <div class="point-icon">🔄</div>
+        <h4>Migration hybride</h4>
+        <p>Les organisations adoptent une approche hybride combinant algorithmes classiques et post-quantiques pour assurer la rétrocompatibilité pendant la transition.</p>
+      </div>
+      <div class="point-card s1">
+        <div class="point-icon">🕵️</div>
+        <h4>"Harvest now, decrypt later"</h4>
+        <p>Des acteurs malveillants collectent dès aujourd'hui des données chiffrées pour les déchiffrer une fois les ordinateurs quantiques disponibles.</p>
+      </div>
+    </div>
+
+    <p class="section-title"><i class="fas fa-microscope"></i> Analyse</p>
+    <div class="analyse-block">
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s1"><i class="fas fa-lock"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Pourquoi RSA et ECC sont menacés ?</div>
+          <div class="ar-sub">Fondements mathématiques et vulnérabilités quantiques</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        RSA repose sur la difficulté de factoriser de grands nombres entiers, et ECC sur le problème du logarithme discret sur les courbes elliptiques. L'algorithme de Shor, exécuté sur un ordinateur quantique suffisamment puissant, résout ces deux problèmes en temps polynomial, réduisant drastiquement le temps nécessaire pour casser le chiffrement.
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s1"><i class="fas fa-flask"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Les algorithmes retenus par le NIST</div>
+          <div class="ar-sub">ML-KEM, ML-DSA, SLH-DSA — bases mathématiques</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        ML-KEM (Kyber) est basé sur le problème Module-LWE (Learning With Errors). ML-DSA (Dilithium) utilise des réseaux euclidiens pour la signature numérique. SLH-DSA (SPHINCS+) est une signature basée sur des fonctions de hachage, ne reposant sur aucun problème algébrique, ce qui lui confère une solidité théorique maximale.
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s1"><i class="fas fa-server"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Impact sur l'infrastructure IT</div>
+          <div class="ar-sub">TLS, VPN, PKI — ce qui doit migrer</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        La migration touche l'ensemble de la pile TLS (HTTPS, SMTPS…), les infrastructures PKI (autorités de certification, certificats X.509), les VPN (IKEv2/IPsec), et les systèmes d'authentification (SSH, tokens). Les équipements matériels (HSM, cartes à puce) devront également être remplacés ou mis à jour pour supporter les nouveaux algorithmes.
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s1"><i class="fas fa-calendar-check"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Calendrier de transition</div>
+          <div class="ar-sub">Recommandations ANSSI et délais réalistes</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        L'ANSSI recommande d'initier la migration dès maintenant pour les systèmes critiques. La plupart des experts estiment qu'un ordinateur quantique "cryptographiquement pertinent" pourrait exister entre 2030 et 2035. Les grandes organisations (gouvernements, banques, défense) ont déjà lancé des programmes de transition pluriannuels.
+      </div>
+
+    </div>
+
+    <p class="section-title"><i class="fas fa-tags"></i> Mots-clés</p>
+    <div class="tags-row">
+      <span class="tag s1"><i class="fas fa-atom"></i> Cryptographie post-quantique</span>
+      <span class="tag s1"><i class="fas fa-lock"></i> RSA / ECC</span>
+      <span class="tag s1"><i class="fas fa-cubes"></i> Réseaux euclidiens (LWE)</span>
+      <span class="tag s1"><i class="fas fa-certificate"></i> ML-KEM (Kyber)</span>
+      <span class="tag s1"><i class="fas fa-signature"></i> ML-DSA (Dilithium)</span>
+      <span class="tag s1"><i class="fas fa-shield-alt"></i> SLH-DSA (SPHINCS+)</span>
+      <span class="tag s1"><i class="fas fa-exchange-alt"></i> TLS hybride</span>
+      <span class="tag s1"><i class="fas fa-landmark"></i> NIST / ANSSI</span>
+    </div>
+
+    <p class="section-title"><i class="fas fa-link"></i> Sources</p>
+    <div class="sources-grid">
+      <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-landmark"></i></div>
+        <div><div class="src-name">NIST PQC</div><div class="src-type">Site officiel</div></div>
+      </a>
+      <a href="https://www.ssi.gouv.fr" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-flag"></i></div>
+        <div><div class="src-name">ANSSI</div><div class="src-type">Recommandations</div></div>
+      </a>
+      <a href="https://blog.cloudflare.com" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-cloud"></i></div>
+        <div><div class="src-name">Cloudflare Blog</div><div class="src-type">Blog technique</div></div>
+      </a>
+      <a href="https://thehackernews.com" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-newspaper"></i></div>
+        <div><div class="src-name">The Hacker News</div><div class="src-type">Actualités</div></div>
+      </a>
+    </div>
+
+    <div class="sujet-divider"></div>
+
+    <!-- ═══════════════════════════════════
+         SUJET 2 — LIVING OFF THE LAND
+         ═══════════════════════════════════ -->
+    <p class="section-title"><i class="fas fa-user-secret"></i> Sujet 2</p>
+
+    <div class="sujet-hero s2">
+      <span class="sujet-num s2">Sujet 02</span>
+      <div class="sujet-hero-body">
+        <h2>La montée des attaques "Living off the Land"</h2>
+        <p>Les attaques LotL consistent à utiliser exclusivement les outils natifs du système d'exploitation (PowerShell, WMI, certutil…) pour mener une intrusion, sans déposer de malware sur le disque. Cette technique rend la détection extrêmement difficile car l'activité malicieuse se confond avec l'usage légitime des outils.</p>
+      </div>
+    </div>
+
+    <p class="section-title"><i class="fas fa-exclamation-triangle"></i> Points clés</p>
+    <div class="points-grid">
+      <div class="point-card s2">
+        <div class="point-icon">👻</div>
+        <h4>Fileless malware</h4>
+        <p>Aucun fichier malveillant n'est écrit sur le disque : le code s'exécute directement en mémoire (RAM), contournant les antivirus basés sur les signatures.</p>
+      </div>
+      <div class="point-card s2">
+        <div class="point-icon">🔧</div>
+        <h4>LOLBins</h4>
+        <p>Les "Living off the Land Binaries" regroupent les exécutables légitimes Windows (certutil, mshta, regsvr32) détournés pour télécharger ou exécuter du code.</p>
+      </div>
+      <div class="point-card s2">
+        <div class="point-icon">📈</div>
+        <h4>Progression alarmante</h4>
+        <p>Selon CrowdStrike (2024), 75 % des attaques comportent désormais une phase LotL, utilisée par des groupes APT étatiques comme HAFNIUM ou Lazarus Group.</p>
+      </div>
+      <div class="point-card s2">
+        <div class="point-icon">🎯</div>
+        <h4>Cibles privilégiées</h4>
+        <p>Infrastructures critiques, hôpitaux, collectivités et grandes entreprises sont les cibles principales, souvent via du spear-phishing initial.</p>
+      </div>
+    </div>
+
+    <p class="section-title"><i class="fas fa-microscope"></i> Analyse</p>
+    <div class="analyse-block">
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s2"><i class="fab fa-windows"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">PowerShell et WMI, armes de prédilection</div>
+          <div class="ar-sub">Vecteurs les plus utilisés dans les attaques LotL</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        PowerShell permet d'exécuter des scripts en mémoire (IEX via DownloadString), de se connecter à distance (PS Remoting) et d'accéder à l'API Windows sans écrire sur le disque. WMI est utilisé pour la persistance via des souscriptions d'événements qui survivent aux redémarrages.
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s2"><i class="fas fa-route"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Déroulement type d'une attaque LotL</div>
+          <div class="ar-sub">Phases d'intrusion, latéralisation et exfiltration</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        1. Initial access : phishing avec macro Office ou lien malveillant. 2. Exécution : script PowerShell obfusqué en mémoire. 3. Persistance : tâche planifiée ou clé de registre via reg.exe. 4. Mouvement latéral : PsExec, WMI ou SMB natifs. 5. Exfiltration : données envoyées via certutil ou BITS (Background Intelligent Transfer Service).
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s2"><i class="fas fa-eye"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Stratégies de détection</div>
+          <div class="ar-sub">EDR, journalisation avancée et analyse comportementale</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        La détection repose sur l'analyse comportementale plutôt que sur les signatures : surveillance des processus parents anormaux (Word lançant PowerShell), activation du Script Block Logging et de l'AMSI (Antimalware Scan Interface), déploiement d'un EDR (CrowdStrike Falcon, Microsoft Defender for Endpoint) capable d'analyser les appels système en temps réel.
+      </div>
+
+      <div class="analyse-row" onclick="toggleRow(this)">
+        <div class="ar-icon s2"><i class="fas fa-hard-hat"></i></div>
+        <div class="ar-text">
+          <div class="ar-title">Mesures de durcissement (hardening)</div>
+          <div class="ar-sub">GPO, AppLocker, Constrained Language Mode</div>
+        </div>
+        <i class="fas fa-chevron-down ar-chevron"></i>
+      </div>
+      <div class="analyse-detail">
+        Principales contre-mesures : activer le Constrained Language Mode de PowerShell, restreindre l'exécution via AppLocker ou WDAC (Windows Defender Application Control), désactiver WScript/CScript sur les postes utilisateurs via GPO, limiter les droits WMI aux seuls administrateurs, et appliquer une politique de moindre privilège stricte.
+      </div>
+
+    </div>
+
+    <p class="section-title"><i class="fas fa-tags"></i> Mots-clés</p>
+    <div class="tags-row">
+      <span class="tag s2"><i class="fas fa-ghost"></i> Fileless malware</span>
+      <span class="tag s2"><i class="fas fa-terminal"></i> PowerShell</span>
+      <span class="tag s2"><i class="fas fa-cogs"></i> WMI</span>
+      <span class="tag s2"><i class="fas fa-file-code"></i> LOLBins</span>
+      <span class="tag s2"><i class="fas fa-search"></i> EDR</span>
+      <span class="tag s2"><i class="fas fa-eye"></i> AMSI</span>
+      <span class="tag s2"><i class="fas fa-ban"></i> AppLocker / WDAC</span>
+      <span class="tag s2"><i class="fas fa-dragon"></i> APT / Threat hunting</span>
+    </div>
+
+    <p class="section-title"><i class="fas fa-link"></i> Sources</p>
+    <div class="sources-grid">
+      <a href="https://attack.mitre.org" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-crosshairs"></i></div>
+        <div><div class="src-name">MITRE ATT&CK</div><div class="src-type">Framework</div></div>
+      </a>
+      <a href="https://www.crowdstrike.com/blog/" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fas fa-crow"></i></div>
+        <div><div class="src-name">CrowdStrike Blog</div><div class="src-type">Threat intelligence</div></div>
+      </a>
+      <a href="https://lolbas-project.github.io" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fab fa-github"></i></div>
+        <div><div class="src-name">LOLBAS Project</div><div class="src-type">Référentiel LOLBins</div></div>
+      </a>
+      <a href="https://www.microsoft.com/en-us/security/blog/" target="_blank" class="source-card">
+        <div class="src-icon"><i class="fab fa-microsoft"></i></div>
+        <div><div class="src-name">Microsoft Security</div><div class="src-type">Blog officiel</div></div>
+      </a>
+    </div>
+
+    <div class="sujet-divider"></div>
+
+    <!-- Bilan global -->
+    <p class="section-title"><i class="fas fa-flag-checkered"></i> Bilan</p>
+    <div class="bilan-card">
+      <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+      <p>
+        Ces deux sujets illustrent deux dimensions complémentaires de la sécurité informatique : l'une prospective — se préparer à un changement de paradigme cryptographique lié à l'informatique quantique — l'autre opérationnelle — comprendre et contrer des techniques d'attaque furtives déjà massivement utilisées. Cette veille m'a permis de développer une lecture critique des évolutions du secteur et de relier les connaissances théoriques du BTS SIO à des problématiques concrètes rencontrées en entreprise.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleRow(row) {
+      const isOpen = row.classList.contains('open');
+      row.closest('.analyse-block').querySelectorAll('.analyse-row').forEach(r => r.classList.remove('open'));
+      if (!isOpen) row.classList.add('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p class="loading-text">Chargement...</p>
+  </div>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="Asset/ChatGPT Image 4 juin 2025, 11_54_01.png" alt="Logo" />
+      <span>C.H</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">Accueil</a>
+      <a href="#about">À Propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
+      <a href="contact.html">Contact</a>
+      <div class="dropdown">
+        <a href="veille techno1.html">Veilles Techno <i class="fas fa-chevron-down" style="font-size:.7em"></i></a>
+        <div class="dropdown-content">
+          <a href="veille techno1.html">Mes veilles</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Entreprises <i class="fas fa-chevron-down" style="font-size:.7em"></i></a>
+        <div class="dropdown-content">
+          <a href="stage.html">Stages</a>
+          <a href="alternance.html">Alternance</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Portfolio 2025-2026</p>
+      <h1 class="typewriter-text" data-phrases='["Clément HARINQUET."]'></h1>
+      <h2 class="subtitle-animation">Technicien réseau junior</h2>
+      <div class="hero-buttons">
+        <a href="#about" class="btn-primary">Qui suis-je ?</a>
+        <a href="#projets" class="btn-outline">Voir mes projets</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse"><div class="wheel"></div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-full">
+    <div class="section-container">
+      <h2 class="section-heading">À propos de moi</h2>
+      <div class="about-grid">
+
+        <div class="about-card">
+          <div class="about-card-icon">
+            <img src="Asset/moi.jpg" alt="Photo de moi" />
+          </div>
+          <h3>Clément Harinquet</h3>
+          <h4>Étudiant en BTS SIO option SISR</h4>
+          <p>
+            Bonjour, je m'appelle Clément HARINQUET, je suis en formation pour obtenir mon BTS SIO (Services Informatiques aux Organisations) au sein de l'IPSSI - Campus de Paris.
+          </p>
+          <button class="see-more-btn">Voir plus</button>
+          <div class="more-text">
+            <p>
+              Avant de m'orienter vers l'informatique, j'ai exercé plusieurs métiers dans des domaines variés. Ces expériences m'ont permis de développer des compétences précieuses : organisation, écoute, sens du conseil et qualités relationnelles solides.
+            </p>
+            <p>
+              De retour en région parisienne, j'ai décidé de donner une nouvelle direction à mon parcours en me reconvertissant dans la cybersécurité, un domaine qui me passionne depuis longtemps.
+            </p>
+            <p>
+              Mon objectif est clair : travailler plus tard dans le secteur de la cybersécurité. Pour y parvenir, je projette de poursuivre mes études en intégrant un Mastère Cybersécurité & Cloud.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">
+            <i class="fas fa-school"></i>
+          </div>
+          <h3>Mon Ecole</h3>
+          <h4>IPSSI - Paris</h4>
+          <p>
+            L'IPSSI Paris est une école spécialisée dans les métiers du numérique et de l'informatique. Située dans le 11e arrondissement, elle propose des formations allant du bac à bac+5.
+          </p>
+          <button class="see-more-btn">Voir plus</button>
+          <div class="more-text">
+            <p>
+              L'école met l'accent sur la pratique, avec des projets concrets, des stages, et la possibilité de faire ses études en alternance dès la 2e année. Les diplômes sont reconnus par l'État.
+            </p>
+            <p>
+              C'est une école qui attire des étudiants passionnés par la tech, qui veulent se former aux compétences les plus recherchées aujourd'hui.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Mon Cursus</h3>
+          <h4>BTS SIO option SISR</h4>
+          <p>
+            Le BTS SIO SISR forme des techniciens capables d'installer, configurer et sécuriser des infrastructures réseau. J'y développe mes compétences en systèmes, réseaux et cybersécurité.
+          </p>
+          <button class="see-more-btn">Voir plus</button>
+          <div class="more-text">
+            <p>
+              C'est une formation assez technique et concrète, qui permet de se lancer rapidement dans la vie pro ou de poursuivre ses études vers une licence ou une école spécialisée.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section-full alt-bg">
+    <div class="section-container">
+      <h2 class="section-heading">Compétences</h2>
+      <p class="section-subtitle">
+        Voici un aperçu de mes compétences techniques acquises et renforcées au fil de mes projets et expériences.
+      </p>
+      <div class="skills-layout">
+        <div class="skills-bars">
+          <h3><i class="fas fa-laptop"></i> Systèmes d'exploitation</h3>
+          <div class="skill"><span>Linux (Debian/Ubuntu)</span><div class="bar"><div class="progress-fill" data-width="90%"></div></div></div>
+          <div class="skill"><span>Windows (10/11/Server)</span><div class="bar"><div class="progress-fill" data-width="85%"></div></div></div>
+          <div class="skill"><span>MacOS</span><div class="bar"><div class="progress-fill" data-width="85%"></div></div></div>
+
+          <h3><i class="fas fa-tools"></i> Outils d'administration</h3>
+          <div class="skill"><span>Zabbix</span><div class="bar"><div class="progress-fill" data-width="75%"></div></div></div>
+          <div class="skill"><span>GLPI</span><div class="bar"><div class="progress-fill" data-width="80%"></div></div></div>
+          <div class="skill"><span>Wazuh</span><div class="bar"><div class="progress-fill" data-width="85%"></div></div></div>
+
+          <h3><i class="fas fa-network-wired"></i> Reseaux</h3>
+          <div class="skill"><span>TCP/IP</span><div class="bar"><div class="progress-fill" data-width="90%"></div></div></div>
+          <div class="skill"><span>VLANs</span><div class="bar"><div class="progress-fill" data-width="85%"></div></div></div>
+          <div class="skill"><span>Cluster DHCP</span><div class="bar"><div class="progress-fill" data-width="85%"></div></div></div>
+        </div>
+
+        <div class="cv-preview">
+          <div class="cv-container">
+            <img src="Asset/CV_Clement-harinquet-1.png" alt="CV de Clement Harinquet" class="cv-image">
+            <div class="cv-overlay">
+              <a href="Asset/CV_Clement-harinquet.pdf" class="btn-primary" download>
+                <i class="fas fa-download"></i> Telecharger mon CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" class="section-full">
+    <div class="section-container">
+      <h2 class="section-heading">École & Entreprise</h2>
+
+      <div class="projets-block">
+        <p class="projets-subtitle"><i class="fas fa-building"></i> Entreprise</p>
+        <div class="projet-grid">
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-ticket-alt"></i></div>
+            <h3>Résolution ticket Jira</h3>
+            <p>Traitement et résolution d'un incident via la plateforme Jira.</p>
+            <a href="Asset/Rsolution_ticket_Jira.pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-desktop"></i></div>
+            <h3>Installation de poste</h3>
+            <p>Procédure complète de déploiement et configuration d'un poste de travail.</p>
+            <a href="Asset/Documentation installation de poste.pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-boxes"></i></div>
+            <h3>Inventaire RFX</h3>
+            <p>Inventaire du parc matériel informatique de Rodeofx.</p>
+            <a href="Asset/Inventaire RFX.pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-briefcase"></i></div>
+            <h3>Documentation stage</h3>
+            <p>Rapport et documentation de mon stage en entreprise.</p>
+            <a href="Asset/Documentation stage.pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="projets-block">
+        <p class="projets-subtitle"><i class="fas fa-graduation-cap"></i> École</p>
+        <div class="projet-grid">
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-search"></i></div>
+            <h3>AP1</h3>
+            <p>Étudier un service ou une solution informatique existante ou à mettre en œuvre, en tenant compte de l'environnement.</p>
+            <a href="Asset/Installation de Zabbix avec deux agents (debian&windows) (1).pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-cogs"></i></div>
+            <h3>AP2</h3>
+            <p>Réaliser ou maintenir une solution informatique adaptée aux besoins d'une organisation.</p>
+            <a href="Asset/Installation de Zabbix avec deux agents (debian&windows) (1).pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>AP3</h3>
+            <p>Documentation de l'activité 1 pour l'épreuve E6.</p>
+            <a href="Asset/Documentation_installation_et_mise_en_place_Proxmox_Backup_Server (2).pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+          <div class="projet">
+            <div class="projet-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>AP4</h3>
+            <p>Documentation de l'activité 2 pour l'épreuve E6.</p>
+            <a href="Asset/Documentation_Technique__Configuration_du_Basculement_DHCP (2).pdf" class="projet-btn" download><i class="fas fa-file-pdf"></i> Documentation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-cta">
+        <a href="Asset/EPREUVE E5 TABLEAU DE SYNTHESE CLEMENT HARINQUET - BTS SIO 2026.pdf" class="btn-primary" download>
+          <i class="fas fa-table"></i> Tableau de synthese
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours" class="section-full alt-bg">
+    <div class="section-container">
+      <h2 class="section-heading">Parcours Professionnel</h2>
+      <p class="section-subtitle">Mon chemin de formation vers la cybersécurité, étape par étape.</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item current">
+          <div class="timeline-dot">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-badge current-badge">En cours</span>
+            <h3>BTS SIO — option SISR</h3>
+            <p class="timeline-school"><i class="fas fa-school"></i> IPSSI Paris</p>
+            <p class="timeline-period"><i class="fas fa-calendar-alt"></i> 2024 — 2026</p>
+            <p class="timeline-desc">
+              Formation en alternance aux services informatiques aux organisations, spécialité solutions d'infrastructure, systèmes et réseaux. Administration systèmes, sécurité réseau, supervision et gestion de parc.
+            </p>
+            <div class="timeline-tags">
+              <span>Linux</span><span>Windows Server</span><span>Réseaux</span><span>Cybersécurité</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item upcoming">
+          <div class="timeline-dot">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-badge upcoming-badge">Prochain</span>
+            <h3>Bachelor Administrateur Systèmes & Réseaux</h3>
+            <p class="timeline-school"><i class="fas fa-school"></i> IPSSI Paris</p>
+            <p class="timeline-period"><i class="fas fa-calendar-alt"></i> 2026 — 2027</p>
+            <p class="timeline-desc">
+              Approfondissement des compétences en administration d'infrastructures complexes, virtualisation avancée, cloud et sécurisation des systèmes d'information. Formation en alternance.
+            </p>
+            <div class="timeline-tags">
+              <span>Cloud</span><span>Virtualisation</span><span>Active Directory</span><span>Firewall</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item future">
+          <div class="timeline-dot">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-badge future-badge">Objectif</span>
+            <h3>Mastère Cybersécurité & Cloud</h3>
+            <p class="timeline-school"><i class="fas fa-school"></i> À définir</p>
+            <p class="timeline-period"><i class="fas fa-calendar-alt"></i> 2027 — 2029</p>
+            <p class="timeline-desc">
+              Spécialisation complète en cybersécurité offensive et défensive, gestion des incidents, architecture sécurisée et gouvernance. Objectif final pour intégrer le secteur de la cybersécurité.
+            </p>
+            <div class="timeline-tags">
+              <span>Pentest</span><span>SOC</span><span>SIEM</span><span>Gouvernance SI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLL TOP -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" class="scroll-top-btn">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <strong>Clément Harinquet</strong>
+        <p>Portfolio BTS SIO - SISR</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/cl%C3%A9ment-harinquet-54143a195/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:clement@example.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Clément Harinquet - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

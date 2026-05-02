@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Stage - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .stage-page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .back-nav { margin-bottom: 32px; }
+    .back-nav a {
+      color: #b0b8c8;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+    .back-nav a:hover { color: #818cf8; }
+
+    /* Hero */
+    .stage-hero {
+      background: linear-gradient(135deg, #1a1f2e 0%, #242938 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 40px 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stage-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(99,102,241,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stage-hero-logo {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+    .stage-hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .stage-hero-info h1 {
+      font-size: 1.7rem;
+      color: #fff;
+      margin: 0 0 4px;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+    }
+    .stage-hero-info .company {
+      font-size: .95rem;
+      color: #06d6a0;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .stage-hero-info .meta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .meta-badge {
+      background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.25);
+      color: #818cf8;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+    }
+    .stat-card:hover { border-color: #6366f1; transform: translateY(-3px); }
+    .stat-card .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-card .stat-label { font-size: 12px; color: #8892a8; margin-top: 4px; }
+
+    /* Section title */
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8892a8;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #2d3748;
+    }
+
+    /* Missions grid */
+    .missions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .mission-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .mission-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99,102,241,.15);
+    }
+    .mission-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .mission-card h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+    .mission-card p {
+      font-size: .84rem;
+      color: #b0b8c8;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Tags */
+    .tags-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .tag {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: #b0b8c8;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: default;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .tag:hover { border-color: #06d6a0; color: #06d6a0; transform: translateY(-2px); }
+    .tag i { font-size: 12px; opacity: .7; }
+
+    /* Bilan */
+    .bilan-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.08), rgba(6,214,160,.06));
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .bilan-card .quote-icon { font-size: 28px; color: #818cf8; flex-shrink: 0; margin-top: 2px; }
+    .bilan-card p { font-size: .95rem; color: #b0b8c8; line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    .cta-row { text-align: center; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: .95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+      box-shadow: 0 4px 24px rgba(99,102,241,.35);
+      font-family: 'Poppins', sans-serif;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-2px); }
+
+    /* Docs grid */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .doc-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .doc-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99,102,241,.2);
+    }
+    .doc-card .doc-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .doc-card .doc-title {
+      font-size: .92rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .doc-card .doc-desc {
+      font-size: .78rem;
+      color: #8892a8;
+      line-height: 1.4;
+    }
+    .doc-card .doc-dl {
+      margin-top: auto;
+      font-size: .78rem;
+      color: #818cf8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .docs-subtitle {
+      font-size: .82rem;
+      font-weight: 700;
+      color: #818cf8;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .docs-subtitle i { opacity: .85; }
+    .docs-block { margin-bottom: 28px; }
+
+    /* LPTMS présentation */
+    .lptms-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .lptms-card .lptms-text { color: #b0b8c8; font-size: .9rem; line-height: 1.7; }
+    .lptms-card .lptms-text strong { color: #fff; }
+    .lptms-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+    .lptms-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(99,102,241,.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: .85rem;
+      color: #b0b8c8;
+    }
+    .lptms-fact i { color: #818cf8; width: 16px; text-align: center; }
+    @media (max-width: 640px) {
+      .lptms-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .stage-hero { flex-direction: column; gap: 20px; }
+      .stats-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <div class="stage-page">
+
+    <nav class="back-nav">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="stage-hero">
+      <div class="stage-hero-logo">
+        <img src="Asset/CNRS LOGO.svg.png" alt="Logo CNRS" />
+      </div>
+      <div class="stage-hero-info">
+        <div class="company">CNRS  Université Paris-Saclay</div>
+        <h1>Stage  LPTMS</h1>
+        <div class="meta">
+          <span class="meta-badge"><i class="far fa-calendar"></i> 28 avril  13 juin</span>
+          <span class="meta-badge"><i class="fas fa-map-marker-alt"></i> Orsay, 91</span>
+          <span class="meta-badge"><i class="fas fa-server"></i> Pôle informatique</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LPTMS présentation -->
+    <p class="section-title"><i class="fas fa-flask"></i> Le laboratoire</p>
+    <div class="lptms-card">
+      <div class="lptms-text">
+        Le <strong>LPTMS</strong> (Laboratoire de Physique Théorique et Modèles Statistiques) est une unité mixte de recherche affiliée au <strong>CNRS</strong> et à l'<strong>Université Paris-Saclay</strong>, basée à Orsay. Spécialisé en physique théorique — mécanique quantique, physique statistique et biophysique — c'est un environnement exigeant où l'informatique joue un rôle clé dans le travail quotidien des chercheurs.
+      </div>
+      <div class="lptms-facts">
+        <div class="lptms-fact"><i class="fas fa-users"></i> ~60 personnes (chercheurs, doctorants, admin)</div>
+        <div class="lptms-fact"><i class="fas fa-microscope"></i> Physique théorique & modèles statistiques</div>
+        <div class="lptms-fact"><i class="fas fa-map-marker-alt"></i> Université Paris-Saclay, Orsay</div>
+        <div class="lptms-fact"><i class="fas fa-landmark"></i> Unité mixte CNRS / Université</div>
+      </div>
+    </div>
+
+    <!-- Missions -->
+    <p class="section-title"><i class="fas fa-briefcase"></i> Missions</p>
+    <div class="missions-grid">
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-server"></i></div>
+        <h4>Serveurs Linux</h4>
+        <p>Installation et configuration de serveurs Debian. Paramétrage des services réseau (NFS, TFTP, DNS, DHCP) et mise en production.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-rocket"></i></div>
+        <h4>Déploiement PXE / ISO</h4>
+        <p>Mise en place d'un boot réseau (PXEBOOT) et déploiement d'images ISO via Proxmox pour automatiser le provisionnement des machines.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-terminal"></i></div>
+        <h4>Scripts d'automatisation</h4>
+        <p>Écriture de scripts Bash et PowerShell pour réduire les interventions manuelles sur les tâches répétitives.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-file-alt"></i></div>
+        <h4>Documentation technique</h4>
+        <p>Rédaction de procédures internes claires destinées à l'équipe pour assurer la continuité des opérations.</p>
+      </div>
+
+    </div>
+
+    <!-- Skills -->
+    <p class="section-title"><i class="fas fa-wrench"></i> Compétences acquises</p>
+    <div class="tags-grid">
+      <span class="tag"><i class="fas fa-network-wired"></i> TCP/IP  VLAN  DHCP</span>
+      <span class="tag"><i class="fas fa-server"></i> Proxmox</span>
+      <span class="tag"><i class="fab fa-linux"></i> Linux (Debian)</span>
+      <span class="tag"><i class="fas fa-rocket"></i> PXEBOOT</span>
+      <span class="tag"><i class="fas fa-terminal"></i> Bash  PowerShell</span>
+      <span class="tag"><i class="fas fa-globe"></i> DNS · NFS · TFTP</span>
+    </div>
+
+    <!-- Bilan -->
+    <p class="section-title"><i class="fas fa-flag-checkered"></i> Bilan</p>
+    <div class="bilan-card">
+      <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+      <p>
+        Un environnement de recherche exigeant qui m'a poussé à être autonome rapidement. J'ai consolidé mes bases en sysadmin Linux, découvert la puissance des outils de déploiement réseau, et appris à documenter pour que mon travail soit réutilisable  pas juste fonctionnel.
+      </p>
+    </div>
+
+    <!-- Docs -->
+    <p class="section-title"><i class="fas fa-folder-open"></i> Documents</p>
+    <div class="docs-grid">
+
+      <a href="Asset/Documentation stage.pdf" class="doc-card" download>
+        <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
+        <div class="doc-title">Documentation de stage</div>
+        <div class="doc-desc">Documentation technique rédigée au LPTMS</div>
+        <span class="doc-dl"><i class="fas fa-download"></i> Télécharger</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

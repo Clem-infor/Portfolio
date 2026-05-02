@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Alternance - Clément Harinquet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .stage-page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .back-nav { margin-bottom: 32px; }
+    .back-nav a {
+      color: #b0b8c8;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+    .back-nav a:hover { color: #818cf8; }
+
+    /* Hero */
+    .stage-hero {
+      background: linear-gradient(135deg, #1a1f2e 0%, #242938 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 40px 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stage-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(99,102,241,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stage-hero-logo {
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .stage-hero-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+    .stage-hero-info h1 {
+      font-size: 1.7rem;
+      color: #fff;
+      margin: 0 0 4px;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+    }
+    .stage-hero-info .company {
+      font-size: .95rem;
+      color: #06d6a0;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .stage-hero-info .meta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .meta-badge {
+      background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.25);
+      color: #818cf8;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Section title */
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8892a8;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #2d3748;
+    }
+
+    /* Company card */
+    .company-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .company-card .company-text { color: #b0b8c8; font-size: .9rem; line-height: 1.7; }
+    .company-card .company-text strong { color: #fff; }
+    .company-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+    .company-fact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(99,102,241,.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: .85rem;
+      color: #b0b8c8;
+    }
+    .company-fact i { color: #818cf8; width: 16px; text-align: center; }
+
+    /* Missions grid */
+    .missions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .mission-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .mission-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99,102,241,.15);
+    }
+    .mission-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .mission-card h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+    .mission-card p {
+      font-size: .84rem;
+      color: #b0b8c8;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Tags */
+    .tags-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .tag {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: #b0b8c8;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: default;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .tag:hover { border-color: #06d6a0; color: #06d6a0; transform: translateY(-2px); }
+    .tag i { font-size: 12px; opacity: .7; }
+
+    /* Bilan */
+    .bilan-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.08), rgba(6,214,160,.06));
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .bilan-card .quote-icon { font-size: 28px; color: #818cf8; flex-shrink: 0; margin-top: 2px; }
+    .bilan-card p { font-size: .95rem; color: #b0b8c8; line-height: 1.7; margin: 0; }
+
+    /* CTA */
+    /* Docs grid */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .doc-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .doc-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(99,102,241,.2);
+    }
+    .doc-card .doc-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #06d6a0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .doc-card .doc-title {
+      font-size: .92rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .doc-card .doc-desc {
+      font-size: .78rem;
+      color: #8892a8;
+      line-height: 1.4;
+    }
+    .doc-card .doc-dl {
+      margin-top: auto;
+      font-size: .78rem;
+      color: #818cf8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .docs-subtitle {
+      font-size: .82rem;
+      font-weight: 700;
+      color: #818cf8;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .docs-subtitle i { opacity: .85; }
+    .docs-block { margin-bottom: 28px; }
+
+    @media (max-width: 640px) {
+      .company-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .stage-hero { flex-direction: column; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <div class="stage-page">
+
+    <nav class="back-nav">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="stage-hero">
+      <div class="stage-hero-logo">
+        <img src="Asset/rodeofx-logo.png" alt="Logo Rodeofx" />
+      </div>
+      <div class="stage-hero-info">
+        <div class="company">Rodeofx</div>
+        <h1>Alternance  Technicien IT</h1>
+        <div class="meta">
+          <span class="meta-badge"><i class="far fa-calendar"></i> 2ème année BTS SIO</span>
+          <span class="meta-badge"><i class="fas fa-map-marker-alt"></i> Paris, 75010</span>
+          <span class="meta-badge"><i class="fas fa-film"></i> Studio VFX international</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entreprise -->
+    <p class="section-title"><i class="fas fa-building"></i> L'entreprise</p>
+    <div class="company-card">
+      <div class="company-text">
+        <strong>Rodeofx</strong> est un studio de VFX international fondé en 2006 à Montréal, avec des bureaux à Paris, Munich et Los Angeles. Le studio a participé à des productions majeures comme <em>Game of Thrones</em>, <em>Stranger Things</em>, <em>The Witcher</em> ou encore <em>Blade Runner 2049</em>. Une infrastructure IT de haut niveau  réseaux 40 Gb/s, fermes de rendu, stockage en pétaoctets  qui demande une équipe technique réactive au quotidien.
+      </div>
+      <div class="company-facts">
+        <div class="company-fact"><i class="fas fa-users"></i> 1000+ employés dans le monde</div>
+        <div class="company-fact"><i class="fas fa-map-marker-alt"></i> Montréal  Paris  Munich  Los Angeles</div>
+        <div class="company-fact"><i class="fas fa-network-wired"></i> Réseau 40 Gb/s & stockage pétaoctets</div>
+        <div class="company-fact"><i class="fas fa-film"></i> VFX pour cinéma & streaming</div>
+      </div>
+    </div>
+
+    <!-- Missions -->
+    <p class="section-title"><i class="fas fa-briefcase"></i> Missions</p>
+    <div class="missions-grid">
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-headset"></i></div>
+        <h4>Support utilisateur</h4>
+        <p>Assistance technique aux artistes et employés : connexion, logiciels, périphériques. Premier point de contact pour les incidents du quotidien.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-desktop"></i></div>
+        <h4>Déploiement de postes</h4>
+        <p>Installation et configuration de stations de travail haute performance pour les nouveaux collaborateurs et les projets en cours.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-network-wired"></i></div>
+        <h4>Brassage réseau</h4>
+        <p>Câblage et organisation des équipements en baie de brassage pour maintenir une infrastructure réseau propre et performante.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-boxes"></i></div>
+        <h4>Gestion de parc & inventaire</h4>
+        <p>Suivi et mise à jour de l'inventaire matériel (postes, écrans, switches, câbles) et maintenance préventive du parc informatique.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-file-alt"></i></div>
+        <h4>Documentation technique</h4>
+        <p>Rédaction de procédures internes et mise à jour de la documentation pour l'équipe IT.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-truck-moving"></i></div>
+        <h4>Déménagement du studio</h4>
+        <p>Participation au déménagement complet du studio Paris : démontage, transport et réinstallation de l'intégralité du parc informatique, câblage et remise en service des postes dans les nouveaux locaux.</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-tablet-alt"></i></div>
+        <h4>Matériel spécialisé VFX</h4>
+        <p>Gestion et support du matériel métier propre aux studios VFX : tablettes Wacom, écrans de référence colorimétrique, salles de projection et licences logicielles spécialisées (Nuke, Maya, Houdini).</p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon"><i class="fas fa-sitemap"></i></div>
+        <h4>Changements de VLAN</h4>
+        <p>Configuration et modification des affectations VLAN sur les switchs pour isoler les flux, intégrer de nouveaux équipements ou adapter la segmentation réseau aux besoins de la production.</p>
+      </div>
+
+    </div>
+
+    <!-- Compétences -->
+    <p class="section-title"><i class="fas fa-wrench"></i> Compétences acquises</p>
+    <div class="tags-grid">
+      <span class="tag"><i class="fas fa-headset"></i> Support technique</span>
+      <span class="tag"><i class="fab fa-windows"></i> Windows  Linux</span>
+      <span class="tag"><i class="fas fa-network-wired"></i> TCP/IP  DHCP  DNS</span>
+      <span class="tag"><i class="fas fa-plug"></i> Câblage RJ45</span>
+      <span class="tag"><i class="fas fa-desktop"></i> Diagnostic matériel</span>
+      <span class="tag"><i class="fas fa-boxes"></i> Gestion de parc</span>
+      <span class="tag"><i class="fas fa-ticket-alt"></i> Ticketing</span>
+      <span class="tag"><i class="fas fa-file-alt"></i> Documentation</span>
+    </div>
+
+    <!-- Bilan -->
+    <p class="section-title"><i class="fas fa-flag-checkered"></i> Bilan</p>
+    <div class="bilan-card">
+      <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
+      <p>
+        Une immersion dans un environnement technique hors du commun. Les infrastructures du secteur VFX m'ont exposé à des contraintes de performance et de disponibilité bien au-delà du cadre scolaire. J'y ai développé mon autonomie, ma réactivité et la rigueur nécessaire pour intervenir sans perturber la production.
+      </p>
+    </div>
+
+    <!-- Docs -->
+    <p class="section-title"><i class="fas fa-folder-open"></i> Documents</p>
+    <div class="docs-grid">
+
+      <a href="Asset/Rsolution_ticket_Jira.pdf" class="doc-card" download>
+        <div class="doc-icon"><i class="fas fa-ticket-alt"></i></div>
+        <div class="doc-title">Résolution ticket Jira</div>
+        <div class="doc-desc">Traitement et résolution d'un incident via la plateforme Jira.</div>
+        <span class="doc-dl"><i class="fas fa-download"></i> Télécharger</span>
+      </a>
+
+      <a href="Asset/Documentation installation de poste.pdf" class="doc-card" download>
+        <div class="doc-icon"><i class="fas fa-desktop"></i></div>
+        <div class="doc-title">Documentation installation de poste</div>
+        <div class="doc-desc">Procédure complète de déploiement et configuration d'un poste de travail.</div>
+        <span class="doc-dl"><i class="fas fa-download"></i> Télécharger</span>
+      </a>
+
+      <a href="Asset/Inventaire RFX.pdf" class="doc-card" download>
+        <div class="doc-icon"><i class="fas fa-boxes"></i></div>
+        <div class="doc-title">Inventaire RFX</div>
+        <div class="doc-desc">Inventaire du parc matériel informatique de Rodeofx.</div>
+        <span class="doc-dl"><i class="fas fa-download"></i> Télécharger</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
