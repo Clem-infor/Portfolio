@@ -297,7 +297,7 @@
         <div class="meta">
           <span class="meta-badge"><i class="far fa-calendar"></i> 2025 — 2026</span>
           <span class="meta-badge"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
-          <span class="meta-badge"><i class="fas fa-book-open"></i> 2 sujets</span>
+          <span class="meta-badge"><i class="fas fa-book-open"></i> 1 sujet</span>
         </div>
       </div>
     </div>
@@ -305,7 +305,7 @@
     <!-- Démarche -->
     <p class="section-title"><i class="fas fa-info-circle"></i> Démarche</p>
     <div class="intro-card">
-      Dans le cadre du <strong>BTS SIO option SISR</strong>, la veille technologique consiste à surveiller régulièrement l'évolution du secteur IT afin d'anticiper les mutations techniques, identifier les nouvelles menaces et rester opérationnel face aux technologies émergentes. J'ai choisi deux sujets liés à la <strong>sécurité des systèmes d'information</strong> : la <strong>cryptographie post-quantique</strong>, qui redéfinit les fondations de la sécurité des données, et les attaques <strong>Living off the Land</strong>, une approche offensive qui exploite les outils légitimes du système pour contourner les défenses.
+      Dans le cadre du <strong>BTS SIO option SISR</strong>, la veille technologique consiste à surveiller régulièrement l'évolution du secteur IT afin d'anticiper les mutations techniques, identifier les nouvelles menaces et rester opérationnel face aux technologies émergentes. J'ai choisi un sujet lié à la <strong>sécurité des systèmes d'information</strong> : la <strong>cryptographie post-quantique</strong>, qui redéfinit les fondations de la sécurité des données face à l'avènement de l'informatique quantique.
     </div>
 
     <!-- ═══════════════════════════════════════════
@@ -430,138 +430,13 @@
       </a>
     </div>
 
-    <div class="sujet-divider"></div>
-
-    <!-- ═══════════════════════════════════
-         SUJET 2 — LIVING OFF THE LAND
-         ═══════════════════════════════════ -->
-    <p class="section-title"><i class="fas fa-user-secret"></i> Sujet 2</p>
-
-    <div class="sujet-hero s2">
-      <span class="sujet-num s2">Sujet 02</span>
-      <div class="sujet-hero-body">
-        <h2>La montée des attaques "Living off the Land"</h2>
-        <p>Les attaques LotL consistent à utiliser exclusivement les outils natifs du système d'exploitation (PowerShell, WMI, certutil…) pour mener une intrusion, sans déposer de malware sur le disque. Cette technique rend la détection extrêmement difficile car l'activité malicieuse se confond avec l'usage légitime des outils.</p>
-      </div>
-    </div>
-
-    <p class="section-title"><i class="fas fa-exclamation-triangle"></i> Points clés</p>
-    <div class="points-grid">
-      <div class="point-card s2">
-        <div class="point-icon">👻</div>
-        <h4>Fileless malware</h4>
-        <p>Aucun fichier malveillant n'est écrit sur le disque : le code s'exécute directement en mémoire (RAM), contournant les antivirus basés sur les signatures.</p>
-      </div>
-      <div class="point-card s2">
-        <div class="point-icon">🔧</div>
-        <h4>LOLBins</h4>
-        <p>Les "Living off the Land Binaries" regroupent les exécutables légitimes Windows (certutil, mshta, regsvr32) détournés pour télécharger ou exécuter du code.</p>
-      </div>
-      <div class="point-card s2">
-        <div class="point-icon">📈</div>
-        <h4>Progression alarmante</h4>
-        <p>Selon CrowdStrike (2024), 75 % des attaques comportent désormais une phase LotL, utilisée par des groupes APT étatiques comme HAFNIUM ou Lazarus Group.</p>
-      </div>
-      <div class="point-card s2">
-        <div class="point-icon">🎯</div>
-        <h4>Cibles privilégiées</h4>
-        <p>Infrastructures critiques, hôpitaux, collectivités et grandes entreprises sont les cibles principales, souvent via du spear-phishing initial.</p>
-      </div>
-    </div>
-
-    <p class="section-title"><i class="fas fa-microscope"></i> Analyse</p>
-    <div class="analyse-block">
-
-      <div class="analyse-row" onclick="toggleRow(this)">
-        <div class="ar-icon s2"><i class="fab fa-windows"></i></div>
-        <div class="ar-text">
-          <div class="ar-title">PowerShell et WMI, armes de prédilection</div>
-          <div class="ar-sub">Vecteurs les plus utilisés dans les attaques LotL</div>
-        </div>
-        <i class="fas fa-chevron-down ar-chevron"></i>
-      </div>
-      <div class="analyse-detail">
-        PowerShell permet d'exécuter des scripts en mémoire (IEX via DownloadString), de se connecter à distance (PS Remoting) et d'accéder à l'API Windows sans écrire sur le disque. WMI est utilisé pour la persistance via des souscriptions d'événements qui survivent aux redémarrages.
-      </div>
-
-      <div class="analyse-row" onclick="toggleRow(this)">
-        <div class="ar-icon s2"><i class="fas fa-route"></i></div>
-        <div class="ar-text">
-          <div class="ar-title">Déroulement type d'une attaque LotL</div>
-          <div class="ar-sub">Phases d'intrusion, latéralisation et exfiltration</div>
-        </div>
-        <i class="fas fa-chevron-down ar-chevron"></i>
-      </div>
-      <div class="analyse-detail">
-        1. Initial access : phishing avec macro Office ou lien malveillant. 2. Exécution : script PowerShell obfusqué en mémoire. 3. Persistance : tâche planifiée ou clé de registre via reg.exe. 4. Mouvement latéral : PsExec, WMI ou SMB natifs. 5. Exfiltration : données envoyées via certutil ou BITS (Background Intelligent Transfer Service).
-      </div>
-
-      <div class="analyse-row" onclick="toggleRow(this)">
-        <div class="ar-icon s2"><i class="fas fa-eye"></i></div>
-        <div class="ar-text">
-          <div class="ar-title">Stratégies de détection</div>
-          <div class="ar-sub">EDR, journalisation avancée et analyse comportementale</div>
-        </div>
-        <i class="fas fa-chevron-down ar-chevron"></i>
-      </div>
-      <div class="analyse-detail">
-        La détection repose sur l'analyse comportementale plutôt que sur les signatures : surveillance des processus parents anormaux (Word lançant PowerShell), activation du Script Block Logging et de l'AMSI (Antimalware Scan Interface), déploiement d'un EDR (CrowdStrike Falcon, Microsoft Defender for Endpoint) capable d'analyser les appels système en temps réel.
-      </div>
-
-      <div class="analyse-row" onclick="toggleRow(this)">
-        <div class="ar-icon s2"><i class="fas fa-hard-hat"></i></div>
-        <div class="ar-text">
-          <div class="ar-title">Mesures de durcissement (hardening)</div>
-          <div class="ar-sub">GPO, AppLocker, Constrained Language Mode</div>
-        </div>
-        <i class="fas fa-chevron-down ar-chevron"></i>
-      </div>
-      <div class="analyse-detail">
-        Principales contre-mesures : activer le Constrained Language Mode de PowerShell, restreindre l'exécution via AppLocker ou WDAC (Windows Defender Application Control), désactiver WScript/CScript sur les postes utilisateurs via GPO, limiter les droits WMI aux seuls administrateurs, et appliquer une politique de moindre privilège stricte.
-      </div>
-
-    </div>
-
-    <p class="section-title"><i class="fas fa-tags"></i> Mots-clés</p>
-    <div class="tags-row">
-      <span class="tag s2"><i class="fas fa-ghost"></i> Fileless malware</span>
-      <span class="tag s2"><i class="fas fa-terminal"></i> PowerShell</span>
-      <span class="tag s2"><i class="fas fa-cogs"></i> WMI</span>
-      <span class="tag s2"><i class="fas fa-file-code"></i> LOLBins</span>
-      <span class="tag s2"><i class="fas fa-search"></i> EDR</span>
-      <span class="tag s2"><i class="fas fa-eye"></i> AMSI</span>
-      <span class="tag s2"><i class="fas fa-ban"></i> AppLocker / WDAC</span>
-      <span class="tag s2"><i class="fas fa-dragon"></i> APT / Threat hunting</span>
-    </div>
-
-    <p class="section-title"><i class="fas fa-link"></i> Sources</p>
-    <div class="sources-grid">
-      <a href="https://attack.mitre.org" target="_blank" class="source-card">
-        <div class="src-icon"><i class="fas fa-crosshairs"></i></div>
-        <div><div class="src-name">MITRE ATT&CK</div><div class="src-type">Framework</div></div>
-      </a>
-      <a href="https://www.crowdstrike.com/blog/" target="_blank" class="source-card">
-        <div class="src-icon"><i class="fas fa-crow"></i></div>
-        <div><div class="src-name">CrowdStrike Blog</div><div class="src-type">Threat intelligence</div></div>
-      </a>
-      <a href="https://lolbas-project.github.io" target="_blank" class="source-card">
-        <div class="src-icon"><i class="fab fa-github"></i></div>
-        <div><div class="src-name">LOLBAS Project</div><div class="src-type">Référentiel LOLBins</div></div>
-      </a>
-      <a href="https://www.microsoft.com/en-us/security/blog/" target="_blank" class="source-card">
-        <div class="src-icon"><i class="fab fa-microsoft"></i></div>
-        <div><div class="src-name">Microsoft Security</div><div class="src-type">Blog officiel</div></div>
-      </a>
-    </div>
-
-    <div class="sujet-divider"></div>
 
     <!-- Bilan global -->
     <p class="section-title"><i class="fas fa-flag-checkered"></i> Bilan</p>
     <div class="bilan-card">
       <span class="quote-icon"><i class="fas fa-quote-left"></i></span>
       <p>
-        Ces deux sujets illustrent deux dimensions complémentaires de la sécurité informatique : l'une prospective — se préparer à un changement de paradigme cryptographique lié à l'informatique quantique — l'autre opérationnelle — comprendre et contrer des techniques d'attaque furtives déjà massivement utilisées. Cette veille m'a permis de développer une lecture critique des évolutions du secteur et de relier les connaissances théoriques du BTS SIO à des problématiques concrètes rencontrées en entreprise.
+        Ce sujet illustre une dimension prospective de la sécurité informatique : se préparer à un changement de paradigme cryptographique lié à l'informatique quantique. Cette veille m'a permis de développer une lecture critique des évolutions du secteur et de relier les connaissances théoriques du BTS SIO à des problématiques concrètes rencontrées en entreprise.
       </p>
     </div>
 
